@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Jon</title>
+</head>
+<body>
+    <video style="display: none;" id="video" src="roll.mp4" loop></video>
+    <button id="playButton">Hello.</button>
+    
+    <script>
+        const video = document.getElementById('video');
+        const playButton = document.getElementById('playButton');
+    
+        playButton.addEventListener('click', () => {
+            document.getElementById('video').style.display="";
+            document.getElementById('playButton').style.display="none";
+            video.muted = false; // Quita el mute si necesitas sonido
+            video.play()
+                .then(() => {
+                    console.log("Video reproduciéndose");
+                })
+                .catch((error) => {
+                    console.error("Error al reproducir el video:", error);
+                });
+        });
+    </script>
+</body>
+</html>
